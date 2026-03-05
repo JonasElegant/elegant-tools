@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant - Gas Calculator m³ naar kWh</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        padding: 20px;
+        min-height: 100vh;
+      }
+
+      .calculator {
+        max-width: 550px;
+        margin: 40px auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .header p {
+        opacity: 0.95;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+
+      .content {
+        padding: 30px;
+      }
+
+      .converter-section {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+      }
+
+      .converter-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .input-wrapper {
+        position: relative;
+        margin-bottom: 15px;
+      }
+
+      .input-with-unit {
+        display: flex;
+        align-items: stretch;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .input-with-unit:focus-within {
+        border-color: #f5576c;
+        box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+      }
+
+      .input-with-unit input {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .input-with-unit input:focus {
+        outline: none;
+      }
+
+      .unit-label {
+        background: #f093fb;
+        color: white;
+        padding: 15px 20px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        min-width: 70px;
+        justify-content: center;
+      }
+
+      .arrow-divider {
+        text-align: center;
+        margin: 20px 0;
+        font-size: 24px;
+        color: #f5576c;
+      }
+
+      .result-box {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .result-label {
+        font-size: 14px;
+        opacity: 0.9;
+        margin-bottom: 5px;
+      }
+
+      .result-value {
+        font-size: 32px;
+        font-weight: 700;
+      }
+
+      .divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #e0e0e0, transparent);
+        margin: 30px 0;
+      }
+
+      .settings-section {
+        background: #fff9e6;
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 4px solid #ffc107;
+      }
+
+      .settings-title {
+        font-weight: 600;
+        color: #856404;
+        margin-bottom: 12px;
+        font-size: 14px;
+      }
+
+      .conversion-input {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .conversion-input label {
+        flex: 1;
+        font-size: 14px;
+        color: #856404;
+      }
+
+      .conversion-input input {
+        width: 100px;
+        padding: 8px 12px;
+        border: 2px solid #ffc107;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .conversion-input input:focus {
+        outline: none;
+        border-color: #ff9800;
+      }
+
+      .helper-text {
+        font-size: 12px;
+        color: #856404;
+        line-height: 1.4;
+      }
+
+      .info-box {
+        background: #e3f2fd;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        border-left: 4px solid #2196F3;
+      }
+
+      .info-title {
+        font-weight: 600;
+        color: #0d47a1;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .info-text {
+        font-size: 13px;
+        color: #1565c0;
+        line-height: 1.6;
+      }
+
+      .example-box {
+        background: white;
+        padding: 12px;
+        border-radius: 8px;
+        margin-top: 10px;
+        font-size: 13px;
+        color: #0d47a1;
+        border: 1px solid #90caf9;
+      }
+
+      @media (max-width: 600px) {
+        .calculator {
+          margin: 20px auto;
+        }
+
+        .content {
+          padding: 20px;
+        }
+
+        .result-value {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="header">
+        <h1>🔥 Gas Calculator</h1>
+        <p>Reken eenvoudig m³ om naar kWh (en omgekeerd)</p>
+      </div>
+      <div class="content">
+        <!-- m³ naar kWh -->
+        <div class="converter-section">
+          <div class="converter-title"> 📊 m³ → kWh </div>
+          <div class="input-wrapper">
+            <div class="input-with-unit">
+              <input type="number" id="m3Input" placeholder="0" min="0" step="0.01" oninput="berekenNaarKwh()">
+              <div class="unit-label">m³</div>
+            </div>
+          </div>
+          <div class="arrow-divider">⬇️</div>
+          <div class="result-box">
+            <div class="result-label">Energiewaarde</div>
+            <div class="result-value" id="resultKwh">0 kWh</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <!-- kWh naar m³ -->
+        <div class="converter-section">
+          <div class="converter-title"> 📊 kWh → m³ </div>
+          <div class="input-wrapper">
+            <div class="input-with-unit">
+              <input type="number" id="kwhInput" placeholder="0" min="0" step="1" oninput="berekenNaarM3()">
+              <div class="unit-label">kWh</div>
+            </div>
+          </div>
+          <div class="arrow-divider">⬇️</div>
+          <div class="result-box">
+            <div class="result-label">Gasvolume</div>
+            <div class="result-value" id="resultM3">0 m³</div>
+          </div>
+        </div>
+        <!-- Instellingen -->
+        <div class="settings-section">
+          <div class="settings-title">⚙️ Conversiefactor aanpassen</div>
+          <div class="conversion-input">
+            <label>1 m³ gas =</label>
+            <input type="number" id="conversieFactor" value="10.5" min="9" max="13" step="0.1" oninput="updateBerekeningen()">
+            <span style="color: #856404; font-weight: 600;">kWh</span>
+          </div>
+          <div class="helper-text"> 💡 De standaardwaarde is 10,5 kWh/m³. Vind jouw exacte waarde op je energiefactuur onder "calorische waarde" of "conversiecoëfficiënt". </div>
+        </div>
+        <!-- Info -->
+        <div class="info-box">
+          <div class="info-title"> 💡 Waarom deze conversie? </div>
+          <div class="info-text"> Je gasmeter thuis meet in <strong>kubieke meter (m³)</strong>, maar je energieleverancier factureert in <strong>kilowattuur (kWh)</strong>. Dit omdat de energiewaarde van gas kan variëren afhankelijk van de samenstelling. <div class="example-box">
+              <strong>Voorbeeld:</strong>
+              <br> Als je gasmeter 100 m³ aangeeft, verbruikte je ongeveer <span id="exampleKwh">1.050</span> kWh aan energie.
+            </div>
+          </div>
+        </div>
+        <div class="info-box" style="background: #f3e5f5; border-left-color: #9c27b0;">
+          <div class="info-title" style="color: #4a148c;"> 📍 Waar vind je deze waarden? </div>
+          <div class="info-text" style="color: #6a1b9a;">
+            <strong>Op je gasmeter:</strong> Het getal dat langzaam oploopt (in m³) <br>
+            <strong>Op je factuur:</strong> De afgerekende hoeveelheid (in kWh) <br>
+            <strong>Conversiefactor:</strong> Staat meestal onderaan je factuur bij "technische gegevens"
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function getConversieFactor() {
+        return parseFloat(document.getElementById('conversieFactor').value) || 10.5;
+      }
+
+      function berekenNaarKwh() {
+        const m3 = parseFloat(document.getElementById('m3Input').value) || 0;
+        const factor = getConversieFactor();
+        const kwh = m3 * factor;
+        document.getElementById('resultKwh').textContent = kwh.toLocaleString('nl-BE', {
+          maximumFractionDigits: 2
+        }) + ' kWh';
+        // Clear andere input
+        if (m3 > 0) {
+          document.getElementById('kwhInput').value = '';
+        }
+      }
+
+      function berekenNaarM3() {
+        const kwh = parseFloat(document.getElementById('kwhInput').value) || 0;
+        const factor = getConversieFactor();
+        const m3 = kwh / factor;
+        document.getElementById('resultM3').textContent = m3.toLocaleString('nl-BE', {
+          maximumFractionDigits: 2
+        }) + ' m³';
+        // Clear andere input
+        if (kwh > 0) {
+          document.getElementById('m3Input').value = '';
+        }
+      }
+
+      function updateBerekeningen() {
+        const factor = getConversieFactor();
+        // Update voorbeeld
+        const exampleM3 = 100;
+        const exampleKwh = exampleM3 * factor;
+        document.getElementById('exampleKwh').textContent = exampleKwh.toLocaleString('nl-BE', {
+          maximumFractionDigits: 0
+        });
+        // Herbereken actieve berekening
+        const m3Input = document.getElementById('m3Input').value;
+        const kwhInput = document.getElementById('kwhInput').value;
+        if (m3Input) {
+          berekenNaarKwh();
+        }
+        if (kwhInput) {
+          berekenNaarM3();
+        }
+      }
+      // Initialiseer voorbeeld bij laden
+      updateBerekeningen();
+    </script>
+  </body>
+</html>
