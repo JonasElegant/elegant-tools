@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elegant - Gas Calculator m³ naar kWh</title>
-        <style>
+       <style>
       * {
         margin: 0;
         padding: 0;
@@ -21,11 +21,11 @@
         margin: 40px auto;
         background: white;
         border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(50, 77, 91, 0.2);
+        box-shadow: 0 20px 60px rgba(50, 77, 91, 0.15);
         overflow: hidden;
       }
       .header {
-        background: linear-gradient(135deg, #32be96 0%, #30a94e 100%);
+        background: linear-gradient(135deg, #30a94e 0%, #32be96 100%);
         color: white;
         padding: 30px;
         text-align: center;
@@ -36,33 +36,30 @@
         margin-bottom: 20px;
       }
       .header h1 {
-        font-size: 26px;
+        font-size: 28px;
         margin-bottom: 10px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
       }
       .header p {
         opacity: 0.95;
         font-size: 15px;
         line-height: 1.5;
-        font-weight: 300;
+        font-weight: 400;
       }
       .content {
         padding: 30px;
       }
       .converter-section {
-        background: linear-gradient(135deg, #b2e3d0 0%, rgba(178, 227, 208, 0.3) 100%);
+        background: linear-gradient(135deg, #f8fdfb 0%, #f0f9f5 100%);
         padding: 25px;
         border-radius: 15px;
         margin-bottom: 20px;
         border: 1px solid #b2e3d0;
       }
       .converter-title {
-        font-size: 18px;
-        font-weight: 600;
+        font-size: 17px;
+        font-weight: 700;
         color: #324d5b;
         margin-bottom: 15px;
         display: flex;
@@ -76,15 +73,15 @@
       .input-with-unit {
         display: flex;
         align-items: stretch;
-        border: 2px solid #32be96;
+        border: 2px solid #b2e3d0;
         border-radius: 10px;
         overflow: hidden;
         transition: all 0.3s;
         background: white;
       }
       .input-with-unit:focus-within {
-        border-color: #30a94e;
-        box-shadow: 0 0 0 3px rgba(48, 169, 78, 0.1);
+        border-color: #32be96;
+        box-shadow: 0 0 0 3px rgba(50, 190, 150, 0.1);
       }
       .input-with-unit input {
         flex: 1;
@@ -98,11 +95,14 @@
       .input-with-unit input:focus {
         outline: none;
       }
+      .input-with-unit input::placeholder {
+        color: #b2e3d0;
+      }
       .unit-label {
         background: linear-gradient(135deg, #32be96 0%, #30a94e 100%);
         color: white;
         padding: 15px 20px;
-        font-weight: 600;
+        font-weight: 700;
         display: flex;
         align-items: center;
         min-width: 70px;
@@ -115,18 +115,19 @@
         color: #32be96;
       }
       .result-box {
-        background: linear-gradient(135deg, #324d5b 0%, #32be96 100%);
+        background: linear-gradient(135deg, #324d5b 0%, #2a3f4a 100%);
         color: white;
         padding: 20px;
         border-radius: 10px;
         text-align: center;
-        box-shadow: 0 4px 15px rgba(50, 77, 91, 0.2);
       }
       .result-label {
         font-size: 14px;
-        opacity: 0.9;
+        opacity: 0.85;
         margin-bottom: 5px;
         font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 1px;
       }
       .result-value {
         font-size: 32px;
@@ -138,16 +139,19 @@
         margin: 30px 0;
       }
       .settings-section {
-        background: linear-gradient(135deg, #fff9e6 0%, #fffef8 100%);
+        background: linear-gradient(135deg, #fff9ed 0%, #fff5e0 100%);
         padding: 20px;
         border-radius: 10px;
         border-left: 4px solid #dc9600;
       }
       .settings-title {
-        font-weight: 600;
-        color: #324d5b;
+        font-weight: 700;
+        color: #dc9600;
         margin-bottom: 12px;
-        font-size: 16px;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
       .conversion-input {
         display: flex;
@@ -159,7 +163,7 @@
         flex: 1;
         font-size: 14px;
         color: #324d5b;
-        font-weight: 500;
+        font-weight: 600;
       }
       .conversion-input input {
         width: 100px;
@@ -167,7 +171,7 @@
         border: 2px solid #dc9600;
         border-radius: 8px;
         font-size: 16px;
-        font-weight: 600;
+        font-weight: 700;
         text-align: center;
         font-family: 'Raleway', sans-serif;
         color: #324d5b;
@@ -179,39 +183,34 @@
       }
       .conversion-input span {
         color: #dc9600;
-        font-weight: 600;
+        font-weight: 700;
       }
       .helper-text {
         font-size: 12px;
         color: #324d5b;
         line-height: 1.5;
-        font-weight: 400;
+        opacity: 0.85;
       }
       .info-box {
-        background: linear-gradient(135deg, #b2e3d0 0%, rgba(178, 227, 208, 0.4) 100%);
+        background: linear-gradient(135deg, #f0f9f5 0%, #e6f5ef 100%);
         padding: 20px;
         border-radius: 10px;
         margin-top: 20px;
         border-left: 4px solid #32be96;
       }
       .info-title {
-        font-weight: 600;
+        font-weight: 700;
         color: #324d5b;
         margin-bottom: 10px;
         display: flex;
         align-items: center;
         gap: 8px;
-        font-size: 16px;
+        font-size: 15px;
       }
       .info-text {
         font-size: 13px;
         color: #324d5b;
-        line-height: 1.6;
-        font-weight: 400;
-      }
-      .info-text strong {
-        font-weight: 600;
-        color: #32be96;
+        line-height: 1.7;
       }
       .example-box {
         background: white;
@@ -220,29 +219,11 @@
         margin-top: 10px;
         font-size: 13px;
         color: #324d5b;
-        border: 2px solid #32be96;
+        border: 2px solid #b2e3d0;
       }
-      .example-box strong {
-        color: #dc9600;
-        font-weight: 600;
-      }
-      .example-box span {
-        color: #30a94e;
-        font-weight: 700;
-      }
-      .info-box.secondary {
-        background: linear-gradient(135deg, #324d5b 0%, rgba(50, 77, 91, 0.9) 100%);
-        border-left-color: #dc9600;
-      }
-      .info-box.secondary .info-title {
-        color: #ffffff;
-      }
-      .info-box.secondary .info-text {
-        color: #ffffff;
-      }
-      .info-box.secondary .info-text strong {
-        color: #dc9600;
-        font-weight: 600;
+      .info-box.purple {
+        background: linear-gradient(135deg, #f8fdfb 0%, #f0f9f5 100%);
+        border-left-color: #30a94e;
       }
       @media (max-width: 600px) {
         .calculator {
@@ -256,9 +237,6 @@
         }
         .logo {
           max-width: 150px;
-        }
-        .header h1 {
-          font-size: 22px;
         }
       }
     </style>
