@@ -3,10 +3,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Elegant · Handtekening generator</title>
-<link rel="icon" href="https://www.datocms-assets.com/198110/1783590480-elegant-favicon.svg?auto=format&amp;h=16&amp;w=16" sizes="16x16" type="image/svg"/>
-<link rel="icon" href="https://www.datocms-assets.com/198110/1783590480-elegant-favicon.svg?auto=format&amp;h=32&amp;w=32" sizes="32x32" type="image/svg"/>
-<link rel="icon" href="https://www.datocms-assets.com/198110/1783590480-elegant-favicon.svg?auto=format&amp;h=96&amp;w=96" sizes="96x96" type="image/svg"/>
-<link rel="icon" href="https://www.datocms-assets.com/198110/1783590480-elegant-favicon.svg?auto=format&amp;h=192&amp;w=192" sizes="192x192" type="image/svg"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -117,11 +113,12 @@
     top: 50%;
     transform: translateY(-50%);
     display: flex;
-    color: var(--text-muted);
   }
   .theme-toggle-icon svg{ width: 14px; height: 14px; }
-  .theme-toggle-icon-sun{ left: 6px; }
-  .theme-toggle-icon-moon{ right: 6px; }
+  .theme-toggle-icon-sun{ left: 6px; color: #ffffff; }
+  .theme-toggle-icon-moon{ right: 6px; color: var(--text-muted); }
+  :root[data-theme="dark"] .theme-toggle-icon-sun{ color: var(--text-muted); }
+  :root[data-theme="dark"] .theme-toggle-icon-moon{ color: #ffffff; }
 
   main.layout{
     display:grid;
@@ -432,28 +429,27 @@
   <td width="225" valign="middle" bgcolor="#ffffff" style="background-color:#ffffff;padding:22px 0 22px 26px;margin:0;border:0;">
     <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;width:225px;border-collapse:collapse;">
       <tbody><tr>
-        <td width="58" valign="middle" style="width:58px;">
-          <!--[if mso]>
+        <td width="52" style="width:52px;padding:0;">
           <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;">
             <tr>
-              <td width="52" height="52" align="center" valign="middle" bgcolor="#d1f9c4"
-                  style="width:52px;height:52px;background-color:#d1f9c4;mso-line-height-rule:exactly;
-                         font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#151b29;">%%AVATAR_LETTER%%</td>
+              <td style="padding:0;margin:0;font-size:0;line-height:0;border:0;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAQ0lEQVR4nGP8//8/AyHARFDFqCKGz/8/sOCR/s/w//nf+2/+Psep6BfDjwe/b/z4/5WBgQG7oh//v975ffkfw18IFwCCghywPH/d9QAAAABJRU5ErkJggg==" width="6" height="6" alt="" style="display:block;width:6px;height:6px;"></td>
+              <td style="padding:0;margin:0;font-size:0;line-height:0;border:0;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAMCAIAAAB6P612AAABAElEQVR4nOWU3UoDMRBGv8kPFhUVLFSFKhYEEd//Mbz3qqAgtCJtdesm2eyMF9aylILKbrrQnrtkwuQ7DAmJCBLA4CC5FxfEecmDOC+ugE9xVxUCnerznu5rmPUH6guXiF7cj95CMqKo2bYOBNXVZz19qaBXS/8SjgjLoS31GGWjaRvDwF6YwYnqVjd/EfbyOZePjGe5zIM4AScO2TyHdNy3NxZ738s1whFhxm8Zv2c8LRE3nrB5DOzA3ndoHyvCBfwoPk94LEjyk7WIgr62dwd0tBAO4kbl04Rf2w6WEAJdmVsqJLzE4XSrVauYx/CwHQ/1j6idsgWg2g6waXZO+AvHoJb9jHd6AwAAAABJRU5ErkJggg==" width="40" height="6" alt="" style="display:block;width:40px;height:6px;"></td>
+              <td style="padding:0;margin:0;font-size:0;line-height:0;border:0;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAQUlEQVR4nGP8//8/AyHARFDFkFb0/t8rwooe/7n99f9HwtY9/H3zH8NfAor+MPx+/OcOAUUMDAwf/715/+81LkUAN4IaoF4VkiEAAAAASUVORK5CYII=" width="6" height="6" alt="" style="display:block;width:6px;height:6px;"></td>
             </tr>
-          </table>
-          <![endif]-->
-          <!--[if !mso]><!-->
-          <table cellpadding="0" cellspacing="0" border="0" role="presentation" style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;">
             <tr>
-              <td width="52" height="52" align="center" valign="middle" bgcolor="#d1f9c4"
-                  style="width:52px;height:52px;background-color:#d1f9c4;border-radius:16px;
-                         -webkit-transform:rotate(-8deg);-moz-transform:rotate(-8deg);transform:rotate(-8deg);
-                         font-family:'Inter',Arial,sans-serif;font-size:20px;font-weight:700;color:#151b29;">
-                <div id="sigAvatarLetter" style="-webkit-transform:rotate(8deg);-moz-transform:rotate(8deg);transform:rotate(8deg);"></div>
+              <td style="padding:0;margin:0;font-size:0;line-height:0;border:0;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAABQCAIAAACiWwM8AAABIElEQVR4nO3UzUrDQBSG4Xd+mtamWqVUF3bn/V+MP7u2gooQRKngQpNMEheGppm0OVkIImSWw5NvvjmEUUVRUF9J8bVMrzPcdkf7gniV3uwKHzmS++TWkXpfVigjW6d3CTGNVaFnt4qLz6ao0Ee+ec9f94oSZbgntzwkShS5x2bZGkpJ3vKoRQA6cg/gz9NHm/ylXdCceI961KMe/S9kCWQ0VKMu6EhGwa8ldew0lpFCWQYCAsRaGhAv+JPUAQVdjuuU1Km4xhisgMSwLWqrVaL2C/5NksFqjIBonUKFxmoio1CfyGiipzKyBAFDAQHhgTAP7a9VQ1M9U/vemdqWwc70hYCAuV3IaEBwqucCAs7NpYxGKjzWZwICFvbK7PwU3y59Qp8hf/+wAAAAAElFTkSuQmCC" width="6" height="40" alt="" style="display:block;width:6px;height:40px;"></td>
+              <td align="center" valign="middle" bgcolor="#d1f9c4"
+                  style="width:40px;height:40px;background-color:#d1f9c4;">
+                <div style="line-height:24px;font-family:'Inter',Arial,sans-serif;font-size:20px;font-weight:700;color:#151b29;"><span id="sigAvatarLetter"></span></div>
               </td>
+              <td style="padding:0;margin:0;font-size:0;line-height:0;border:0;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAABQCAIAAACiWwM8AAABHklEQVR4nO3RsU7DMBDG8X9iJ20RC0gUVIEQihBLGXj/lRfgBTrBQFFBrQpJnNhmQKpS2uQ8VIIhns7Wz9+d7OipfASAGHWXPiQM2FnxpnLYl3q2K7YQsHLvpc8FBMzts4w+3LzCCAh42wnbgxb21VILyOOWbiEg4NOtDoQMRU0lIGDtljJqdmxFuV/LqPmJrchSO6yAmmHdqJCROWBSAAoavKbyeAEBpf8KQUUIymVkwpICkAlpV2E8XkBA6XMZGV/8u6QyJKmilBHiY/aoRz3q0d8ghZbRiRoLKCIeq0sBXahrTdKFhtHRmZrQPfiVvv0pWtFpfD6KjrvQIBpN9M1muwclpFkyjVGtSKGz5F6TNg/j7Y3KkmkaDX/d/AagdH0mdwZ68gAAAABJRU5ErkJggg==" width="6" height="40" alt="" style="display:block;width:6px;height:40px;"></td>
+            </tr>
+            <tr>
+              <td style="padding:0;margin:0;font-size:0;line-height:0;border:0;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAASUlEQVR4nGP8//8/Azbw+d/7+3+uQdhMWFUwMDDwMgkKMUkQUMTAwCDNosjGyEFAESMDkwKLJiMDIyMuNyEc9/8DYUUErBv6igDmRhJtkgsCkAAAAABJRU5ErkJggg==" width="6" height="6" alt="" style="display:block;width:6px;height:6px;"></td>
+              <td style="padding:0;margin:0;font-size:0;line-height:0;border:0;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAMCAIAAAB6P612AAABB0lEQVR4nO2WzUrDQBRGv3tnMjMhVdtSlYob3/81fAEhO62Cf7joppJa0yRzXURKCUWizQ+oZzkzzJzD3QxdpZf4S3DfAl3zH/yrYShNIIH0bdIFIz6e6gta+tfbLPbwffu0BYHHfHqizwMYACQiK0lmWexR9O3WMAp6oqYTdaagN4skIgBSeZtlcY6sP73GCCk64NGAhxEdEqiy+xkMYI30MbtOZNG54b4Q2JALKTri8YCH2/PccXgTXLLw86f8Lse6ZckfwlCWnKHQkrMUGnKWnIapf0M1GIBH8VLcz4vnRlW/jUZgtqrKyK+nV4cdwSXvsnzIb1aS7PlAHQJYS66Sx+38ET4APxdP98EyCxkAAAAASUVORK5CYII=" width="40" height="6" alt="" style="display:block;width:40px;height:6px;"></td>
+              <td style="padding:0;margin:0;font-size:0;line-height:0;border:0;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAIAAADZF8uwAAAAUElEQVR4nGO8+PMIAwMDAwMDIwOjMqsuFyMvAwZggVBsDOzyrJqcjNyYKqCKhJjEpViUmBiYsKpgYGBg+Pj37X9CgPH///84DYAB3FaMGEUA2KIqq67aqegAAAAASUVORK5CYII=" width="6" height="6" alt="" style="display:block;width:6px;height:6px;"></td>
             </tr>
           </table>
-          <!--<![endif]-->
         </td>
         <td width="14" style="width:14px;"></td>
         <td valign="middle" style="font-family:'Inter',Arial,sans-serif;">
@@ -472,25 +468,25 @@
       <tbody><tr id="sigEmailRow">
         <td width="20" valign="middle" style="padding-bottom:6px;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTklEQVR4AexWPW/TUBS9N+IHIBR7iC2xxgbBwtSpbMxBdEERA0gggcRAEQyVWoEYKLCAVIGQGKpMfCwsHRiaiIGpYqqdEZDtSrbFDIsv55kWOYmdOClpO8S6572T9+7H8XWe5Qod8jUTMOvA0eqAZlibgEwZm9mD19+B+ezmlHhPjX4B/2oK0fcKy5nId3k/YE7OErFHBVeuABRvMdFJEW7rtfpcQezI5apZnxepdIjEhPM6MGC5AmLfbQrJKwg5IcwdzTx1YSByxIJu1hss/Alux4E1dPEK5gHLFaC8Yr97g4mfgR8jSTY0w74EXsqqpnUN3fsAZ8TS48h3b4LnWqEA5R36ziIzP1AcbXyrEv/lxaNes+6y0Otdj6UocO/v8txpqAAVEXrOMjPdU1wl1mv2ouJ50E17RZhW0z3m27jzRykfMowUoGJDz11F8bSNwvJEM6yHaj0L3bCfishyuiZ8NfKc5ykfMZQSoHKEgbvGzE3w38CSZtovMKemG/WX+NPewY9fRLwQBc4bKnmVFqDyhZ7TwrFawOn4SSK3qoa1rtfqLSG+jv2YmBuR77wDL21jCVBZ42D7I7FcZKIfQFOYL2P9GyUo7jkb4GPZ2AJU9tjrtpNEGuBbwBcSFN9xPoOPbRMJUFXine5W5LvngDk8869qbRJMLGCSYnkxMwFHrgNt9Zw0w5rKV5HKLULbat5DTwfwKu30O+w5/qcZNyjvs7l6BMRBdyUO3NM4Wvv6ChoSf17VKBSQ3Tgo3tOBgyqarTMTMPUOZNudx/8AAAD//2AhjBcAAAAGSURBVAMAiAlbUKN6G14AAAAASUVORK5CYII=" width="14" height="14" alt="" style="display:block;"></td>
         <td width="240" valign="middle" style="padding-bottom:6px;padding-left:8px;font-family:'Inter',Arial,sans-serif;font-size:13px;color:#151b29;">
-          <a id="sigEmailLink" href="mailto:klantendienst@mail.elegant.be" style="text-decoration:none;color:#151b29;">klantendienst@mail.elegant.be</a>
+          <div style="line-height:16px;"><a id="sigEmailLink" href="mailto:klantendienst@mail.elegant.be" style="text-decoration:none;color:#151b29;">klantendienst@mail.elegant.be</a></div>
         </td>
       </tr>
       <tr>
         <td width="20" valign="middle" style="padding-bottom:6px;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEPElEQVR4AexWPYwbRRR+b20pNFCQ7F1iH13Q2Y6CFAQNBHQUpKHh56ABJCQqggDR5oqEgqND4icRZaSIikQCJOqcCNcBEki270SKSIcdcrauIEWUxLeT75uZjWe99vquOKXJ6r1533zvZ97u7HocyQO+HjawqycwMzf/VFypfxhX65eh69D/vRJfpo8xu9nVHTUQH2q8EFcbF42J/hKVb7HAAnQ/9FGvxAv0MYaxzIFvqkxtIK7UvpbI/Cpi3mA1I3JBRM+LCBftwlKB9bzzgWEscmwupwVa2AAe7z+i+hHzjTGfmbJUIjU/oZn3yKmJ3qISk6OPMYy1HHJtDTsZP0xsAI/xN6Qcxl1tqZHX+t21MwPdd8sYPQ1eVPSDzW5zlUpMjj7G9BGryGEu+MO+FmBexjYQV2ufi5jnEX6t32nv3+y2fwSW8t0778Meha5sdlrfwVrxeAWToz5GmMNccNdYy9XEbERyDbiXR08xbns7eoU2VRXzOjHu7gfaUFMujUl9wxp6ytVOPc7mGpBIPqGL+7j1X7NFHOhzwD3c3TnYjHiuB5IxME5Yg7XszNe22A+ZBg48Mf8MHpd921X1dFytm1B9ThxyIYY/hkrIEbMWedZ2a7gZx0wDmpROkNxLHV0j0wA6fJmL4+39tNdpa6jg+ZKJmuh4yIeYPsRRVkKemDXpSNdwWLDjKXK24oy56mx+THSb+5x3gCnyYeG0pl8DCZCRJyCHwImU9Q9rxw23zfVxtOWKfMOabg2bkH8Cli7fvjuwYMygWsLTHOMAVeSbVDNCXij27gbl8pGQDLE+Es2G8xAX+YKado00b7QBHiwSJdpIA3J2ezCxASnwBTXtGmndbANGLtJhVM7y+w0V/AJUjOpqyIeYPsZAF0Ke2KAmeLyLbg2LMWQa0Ci5Am5PZXSNTAOb/67/LaKXxF3n+P2G6mi5EXIhhv8GVEKOGJz/6dZLbg0wXjINWC6Rr6wVOYlj9E2PrVHRnwFmZ6r1d2Ez4rlZH3Pf52uctMSwtp1yyDXQu966IsZ8Qyc27Kyzbkwk+YUI+/kObagpl8YMfcbVQE1be+iwKNcA2V537WNY/nLh4KltxJXGMczljpbwv1CaYuTETKXu7goOi8EZI03GgJK40jgWV2sbwDygrvqamGZlbAMMwd49KaKr0DkcAH8eqNTOlAdyUCL9QnDhjr98/OCRBpUYlNDHGMYyR0TnoKuuloy9JjbA6F6ndRzbsEzMI7VUSpqYL+J8/x7cPswvUIkdZxYxbzIWHMQsuxqAE6SwAeb0OmtLkuiL4r8O/PN5FQu8jd/jLRF5mkpMjj7MIfiSkGNzMSuSqQ0wmS8P7mTRRMmzIrokIisq0heRm1SPcVzrEmMYyxz4psqOGkir9DfWf0dxPNb2S71Oex76mFdicK1lxqTxO7G7amAnBXcbs+cNTGvoHgAAAP//BKXTCgAAAAZJREFUAwBClApffF5PGwAAAABJRU5ErkJggg==" width="14" height="14" alt="" style="display:block;"></td>
         <td width="240" valign="middle" style="padding-bottom:6px;padding-left:8px;font-family:'Inter',Arial,sans-serif;font-size:13px;color:#151b29;">
-          <a href="https://www.elegant.be/?utm_source=signature&amp;utm_medium=email&amp;utm_campaign=email_signature" style="text-decoration:none;color:#151b29;">elegant.be</a>
+          <div style="line-height:16px;"><a href="https://www.elegant.be/?utm_source=signature&amp;utm_medium=email&amp;utm_campaign=email_signature" style="text-decoration:none;color:#151b29;">elegant.be</a></div>
         </td>
       </tr>
       <tr id="sigPhoneRow">
         <td width="20" valign="middle" style="padding-bottom:6px;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEPElEQVR4AexWXWgcVRQ+ZzZF8Qd/OrObzGyjCG12N6SVomD9AeuLINiKmlZNFVREVLAP+hJBWkFSEfsgQkXBH0SxNoLiD4ggFdEHRa3EdmcXIoLdWevOtqIUtNnsHL8zs4nJziRNswuF0uF+c849c+8539x77pwx6DRfZwksugLp7MBayymMAa7l5D3Tzr3d7R1bkIBl57eKGJ8TySiQQ2CbmUcsu/AA9K61RAJpJ/8IMe1FlIyIvEPEW0BijHAxByMQXWsxAhf1D10iRNujCLyrXi1t873iOE0Zu9QmxDel+3I3q94NxAismG5o8AFh+hCBn5oJ4vvF40z8qvYDg7u2CjEC2OeCBjGC4AWV82AYz2ufiUZ6+wuDqneKGAHs9QZ12kNSVjkXtcMHfyGhD2Azmk3qyiokEOCVCEDN5rn/qGwHk7RWRobbny2nn0CAjqkj5ilLZTsCpnCFROhE+7Pl9JMIHFVHjRWpGAHTzt3NxOEKIFe26bhOkUQgWoFA1s91bvbl1yPoG5EtGMYJ+SnSO7vHCDDR6+oSe71J5SwM2gP9HCbe7Xvl96F3pcUI/MvGp/DcAG7J9A9dARk1oQtUEaKu1oMYgb8rh47h87tPgzWnG/epVLDBr6jEMd0fye7cYwRCtxzWAcKeP2Relu9Tm18pvgT5HnCx5RQStwD2K007f1ABfWwpH6tEAnWv9AkRf0xENjXkYciw+Z57F5TDWIU7zLbSbDkDd8J+gJkGFdBHm02ZMJ38W4vVjkQCCEJCQfjdZ+YdllMYVpsCJPohJ2AfMZ380Uw2N5R2CjiaxjjsmCdPsgTXI4k/Qt9gonvF4M/STu4LK6GUL0igjlXgVvHB2+zr7c1dDodh8z13HZSnmejSQHhCSJ5A/wRy5566V9pdq5a/qXmlzcTGauLoVAmqKLG8Zjn5dzF2ti1IQEfUvKIu/w+qN1P8q22vMVVX+J77LBHfT0STQvStBHQtSvc8537l0KRfcR+kKb4QLxGWc4zfCMy2RQnoKAS6SqWiwSnf6ivcoLrC94pv+p67uu6519R/d39UWxK0lBMZB6Jn/Gcko/tJCegwBMGWklZB+JGvTDu302ydDn2+FIgEm1vjIj+tzpII6Fi/6t5Ows+pzkhMnqbvQyJObo3aFoOFH1vM0fL9B3Nz79yxSyagk/xqcRQJdyu1jiic7mDiMhJrv5UtPL5y1eDVmqyZzNrzNV/S9sB1ZjaPNxb82BLSgLbXKuUJaLPtlAjorDpOh+8VN0VESL+Y07DfSCIv4i/qO03WoKdxXPNF2PiahW4jojITPepXXf2Qoft/O2UCM1PrIRF3a6rZsBHkMdi/BPTtPEj8zEgFclxEnplK9Wyoee7L6MfasgnMeDpyZNKvVd09vuduBNYBWeA83yutgtxSr5Z2/vXbz/Myf2auyo4JqJNOcOYTONnq/AcAAP//BIk+RgAAAAZJREFUAwBUUXhQE/4VFgAAAABJRU5ErkJggg==" width="14" height="14" alt="" style="display:block;"></td>
         <td width="240" valign="middle" style="padding-bottom:6px;padding-left:8px;font-family:'Inter',Arial,sans-serif;font-size:13px;color:#151b29;">
-          <a id="sigPhoneLink" href="tel:+3215481130" style="text-decoration:none;color:#151b29;">015 48 11 30</a>
+          <div style="line-height:16px;"><a id="sigPhoneLink" href="tel:+3215481130" style="text-decoration:none;color:#151b29;">015 48 11 30</a></div>
         </td>
       </tr>
             <tr id="sigLinkedinRow" style="display: none;">
         <td width="20" valign="middle" id="linkedin"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABS0lEQVR4AeyXQQ4BMRSGywFchKU9EokTOIC1Q7C3tRZrJ5BY4A4cxAn4P6MyqaHTaE0kI+9rXzuT937vzVQ0TcWfWoBbgbk6chLXRBCbHAqfmSugp+22SGXEJsczviug/7jS0JwChTU2h+HjCmDvp9QCQiqwV29AUzwrK4BXh4cH8KMpCBFwUFaoRIBym4EG0BTPylaAjPQf8AF/I2ciduIitiKoQiEC6D8ox93wx/JWYihaYiRmYilKWYiAdwF5LqgCJycz66luXgivxRBwVJa1wJhZ43cZfMQQ4PbcrmmRL7+JIcCb5NMNtYC/qgCvF9iW4oNd52f2Ib9X6IdUgGMYbCB8sOv8zD7k9wr9EAGFAb7drAW4FbAPTqr/BXTM5sB/OQk5x8/3K2kGYpPjGd2tAOd4R1f5ZUsBscmhFJm5ArLdH47JBfi+yw0AAP//zQFk1gAAAAZJREFUAwDeQ1NBknjpzAAAAABJRU5ErkJggg==" width="14" height="14" alt="" style="display:block;"></td>
         <td width="240" valign="middle" style="padding-left:8px;font-family:'Inter',Arial,sans-serif;font-size:13px;color:#151b29;">
-          <a id="sigLinkedinLink" href="https://www.linkedin.com/" style="text-decoration:none;color:#151b29;">Connecteer op LinkedIn</a>
+          <div style="line-height:16px;"><a id="sigLinkedinLink" href="https://www.linkedin.com/" style="text-decoration:none;color:#151b29;">Connecteer op LinkedIn</a></div>
         </td>
       </tr>
     </tbody></table>
@@ -658,7 +654,7 @@
 
     const node = signatureWrapper;
     const avatarLetter = sigAvatarLetter.textContent || '';
-    const html = node.innerHTML.replace(/%%AVATAR_LETTER%%/g, avatarLetter);
+    const html = node.innerHTML;
     const text = node.innerText;
     let success = false;
 
