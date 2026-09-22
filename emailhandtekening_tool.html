@@ -595,6 +595,8 @@
       sigEmailLink.setAttribute('href', 'mailto:' + email);
     } else {
       sigEmailRow.style.display = 'none';
+      sigEmailLink.textContent = '';
+      sigEmailLink.removeAttribute('href');
     }
 
     if (phone){
@@ -604,13 +606,18 @@
       if (href) sigPhoneLink.setAttribute('href', href);
     } else {
       sigPhoneRow.style.display = 'none';
+      sigPhoneLink.textContent = '';
+      sigPhoneLink.removeAttribute('href');
     }
 
     if (linkedin){
       sigLinkedinRow.style.display = '';
+      sigLinkedinLink.textContent = 'Connecteer op LinkedIn';
       sigLinkedinLink.setAttribute('href', toLinkedinHref(linkedin));
     } else {
       sigLinkedinRow.style.display = 'none';
+      sigLinkedinLink.textContent = '';
+      sigLinkedinLink.removeAttribute('href');
     }
   }
 
