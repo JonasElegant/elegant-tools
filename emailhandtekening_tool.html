@@ -484,7 +484,7 @@
           <div style="line-height:16px;"><a id="sigPhoneLink" href="tel:+3215481130" style="text-decoration:none;color:#151b29;">015 48 11 30</a></div>
         </td>
       </tr>
-            <tr id="sigLinkedinRow" style="display: none;">
+            <tr id="sigLinkedinRow">
         <td width="20" valign="middle" id="linkedin"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABS0lEQVR4AeyXQQ4BMRSGywFchKU9EokTOIC1Q7C3tRZrJ5BY4A4cxAn4P6MyqaHTaE0kI+9rXzuT937vzVQ0TcWfWoBbgbk6chLXRBCbHAqfmSugp+22SGXEJsczviug/7jS0JwChTU2h+HjCmDvp9QCQiqwV29AUzwrK4BXh4cH8KMpCBFwUFaoRIBym4EG0BTPylaAjPQf8AF/I2ciduIitiKoQiEC6D8ox93wx/JWYihaYiRmYilKWYiAdwF5LqgCJycz66luXgivxRBwVJa1wJhZ43cZfMQQ4PbcrmmRL7+JIcCb5NMNtYC/qgCvF9iW4oNd52f2Ib9X6IdUgGMYbCB8sOv8zD7k9wr9EAGFAb7drAW4FbAPTqr/BXTM5sB/OQk5x8/3K2kGYpPjGd2tAOd4R1f5ZUsBscmhFJm5ArLdH47JBfi+yw0AAP//zQFk1gAAAAZJREFUAwDeQ1NBknjpzAAAAABJRU5ErkJggg==" width="14" height="14" alt="" style="display:block;"></td>
         <td width="240" valign="middle" style="padding-left:8px;font-family:'Inter',Arial,sans-serif;font-size:13px;color:#151b29;">
           <div style="line-height:16px;"><a id="sigLinkedinLink" href="https://www.linkedin.com/" style="text-decoration:none;color:#151b29;">Connecteer op LinkedIn</a></div>
@@ -546,6 +546,23 @@
   const sigPhoneRow = document.getElementById('sigPhoneRow');
   const sigLinkedinRow = document.getElementById('sigLinkedinRow');
 
+  function anchorFor(row){
+    const anchor = document.createComment('');
+    row.parentNode.insertBefore(anchor, row);
+    return anchor;
+  }
+  const sigEmailRowAnchor = anchorFor(sigEmailRow);
+  const sigPhoneRowAnchor = anchorFor(sigPhoneRow);
+  const sigLinkedinRowAnchor = anchorFor(sigLinkedinRow);
+
+  function setRowVisible(row, anchor, visible){
+    if (visible){
+      if (!row.parentNode) anchor.parentNode.insertBefore(row, anchor.nextSibling);
+    } else if (row.parentNode){
+      row.remove();
+    }
+  }
+
   const fieldFirstName = document.getElementById('fieldFirstName');
   const fieldJobTitle = document.getElementById('fieldJobTitle');
 
@@ -590,32 +607,32 @@
     }
 
     if (email){
-      sigEmailRow.style.display = '';
+      setRowVisible(sigEmailRow, sigEmailRowAnchor, true);
       sigEmailLink.textContent = email;
       sigEmailLink.setAttribute('href', 'mailto:' + email);
     } else {
-      sigEmailRow.style.display = 'none';
+      setRowVisible(sigEmailRow, sigEmailRowAnchor, false);
       sigEmailLink.textContent = '';
       sigEmailLink.removeAttribute('href');
     }
 
     if (phone){
-      sigPhoneRow.style.display = '';
+      setRowVisible(sigPhoneRow, sigPhoneRowAnchor, true);
       sigPhoneLink.textContent = phone;
       const href = toTelHref(phone);
       if (href) sigPhoneLink.setAttribute('href', href);
     } else {
-      sigPhoneRow.style.display = 'none';
+      setRowVisible(sigPhoneRow, sigPhoneRowAnchor, false);
       sigPhoneLink.textContent = '';
       sigPhoneLink.removeAttribute('href');
     }
 
     if (linkedin){
-      sigLinkedinRow.style.display = '';
+      setRowVisible(sigLinkedinRow, sigLinkedinRowAnchor, true);
       sigLinkedinLink.textContent = 'Connecteer op LinkedIn';
       sigLinkedinLink.setAttribute('href', toLinkedinHref(linkedin));
     } else {
-      sigLinkedinRow.style.display = 'none';
+      setRowVisible(sigLinkedinRow, sigLinkedinRowAnchor, false);
       sigLinkedinLink.textContent = '';
       sigLinkedinLink.removeAttribute('href');
     }
